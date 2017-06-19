@@ -2,3 +2,6 @@ Running: xsim.dir/Lock_behav/xsimk.exe -simmode gui -wdb Lock_behav.wdb -simrunn
 Design successfully loaded
 Design Loading Memory Usage: 5980 KB (Peak: 5980 KB)
 Design Loading CPU Usage: 93 ms
+Simulation completed
+Simulation Memory Usage: 6480 KB (Peak: 6480 KB)
+Simulation CPU Usage: 124 ms

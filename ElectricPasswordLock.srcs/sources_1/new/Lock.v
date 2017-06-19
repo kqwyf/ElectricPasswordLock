@@ -151,3 +151,48 @@ module Lock(in,green,red);
         green<=~red;
     end
 endmodule
+
+module Timeoutt(start,change,reset,stop);
+    input start;
+    input change;
+    input reset;
+    output stop;
+    reg flag;
+    initial flag=0;
+    reg[2:0] counttime;
+    initial {counttime[0],counttime[1],counttime[2]}= 3'b101;
+    always @ (posedge reset)
+    begin
+        flag=0;
+    end
+    assign stop=~flag;
+    always @ (posedge start)
+    begin
+        flag=1;
+        counttime=3'b101;
+    end
+    always #1000000000
+    begin
+      if(flag==1)
+      begin
+        counttime=counttime-1;
+        if(counttime==0)
+            flag=0;
+       end
+    end
+    always @ (posedge change) 
+    begin
+        flag=1;
+        counttime=3'b101;
+    end
+    always  #1000000000
+    begin
+       if(flag==1)
+       begin
+         counttime=counttime-1;
+         if(counttime==0)
+             flag=0;
+       end
+    end 
+
+endmodule
