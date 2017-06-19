@@ -1,7 +1,4 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/qwer.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module qwer
-WARNING: [VRFC 10-2502] extra semicolon in $unit (global) scope [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/qwer.v:33]
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sim_1/new/counter.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module counter
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/lalala/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Lock
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl

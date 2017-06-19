@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-3" LaunchTime="1497788106">
-  <File Type="RDS-PROPCONSTRS" Name="qwer_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="qwer.tcl"/>
-  <File Type="RDS-RDS" Name="qwer.vds"/>
-  <File Type="RDS-UTIL" Name="qwer_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="qwer_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="qwer.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="qwer_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="qwer_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-3" LaunchTime="1497856591">
+  <File Type="RDS-PROPCONSTRS" Name="Lock_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="Lock.tcl"/>
+  <File Type="RDS-RDS" Name="Lock.vds"/>
+  <File Type="RDS-UTIL" Name="Lock_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Lock_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Lock.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Lock_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Lock_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/qwer.v">
+    <File Path="$PSRCDIR/sources_1/new/Lock.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -19,7 +19,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="qwer"/>
+      <Option Name="TopModule" Val="Lock"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -30,9 +30,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

@@ -25,7 +25,11 @@ module qwer(n0,n1,n2,n3,clk);
     output n0,n1,n2,n3;
     reg [3:0] number;
     initial number=0;
-    always @(posedge clk) number=number+1;
+    always @(posedge clk)
+    begin
+        if(number<2)
+            number=number+1;
+    end
     assign n0=number[0];
     assign n1=number[1];
     assign n2=number[2];

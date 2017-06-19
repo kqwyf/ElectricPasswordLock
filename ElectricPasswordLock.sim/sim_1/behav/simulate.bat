@@ -1,6 +1,6 @@
 @echo off
-set xv_path=D:\\anzhuang\\Vivado\\2016.4\\bin
-call %xv_path%/xsim counter_behav -key {Behavioral:sim_1:Functional:counter} -tclbatch counter.tcl -log simulate.log
+set xv_path=D:\\Vivado\\Vivado\\2017.1\\bin
+call %xv_path%/xsim Lock_behav -key {Behavioral:sim_1:Functional:Lock} -tclbatch Lock.tcl -log simulate.log
 if "%errorlevel%"=="0" goto SUCCESS
 if "%errorlevel%"=="1" goto END
 :END
