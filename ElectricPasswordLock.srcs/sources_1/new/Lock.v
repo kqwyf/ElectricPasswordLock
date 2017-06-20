@@ -185,16 +185,28 @@ module Timeoutt(start,stop);
     reg [2:0] counttime;
     reg [3:0] cnt;
     reg [3:0] cur;
-    reg flag;
-    initial flag=0;
-    initial cnt=10;
-    initial counttime=0;
+    reg b1,b2,s1,s2,flag,new;
+    initial
+    begin
+        new<=0;
+        b1<=0;
+        b2<=0;
+        s1<=0;
+        s2<=0;
+        cnt<=10;
+        counttime<=0;
+    end
+    always @(s1,s2)
+    begin
+        if(b1!=s1)
+        begin
+            if(s1)
     assign stop=!flag;
     always #100000000
     begin
         if(flag==1)
         begin
-            if(counttime==0) counttime=5;
+            if(new) counttime=5;
             if(cnt==cur)
             begin
                 counttime<=counttime-1;
