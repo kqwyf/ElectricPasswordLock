@@ -24,175 +24,180 @@ module Lock(in,green,red);
     input [7:0] in;
     output green,red;
     reg green,red;
-    wire start,stop,change,reset,changing;
+    wire w_start,stop,w_changing;
     reg [2:0] p[1:0];
-    reg [1:0] step;
+    reg [2:0] step;
     reg [7:0] has;
     reg [5:0] times;
-    reg r_start,r_change,r_reset;
+    reg start,changing;
     initial
     begin
-        r_start=0;
-        r_change=0;
-        r_reset=0;
-        step=0;
-        has=8'b00000001;
-        times=0;
-        p[0]=0;
-        p[1]=0;
-        p[2]=0;
-        p[3]=0;
-        red=1;
-        green=0;
+        start<=0;
+        step<=0;
+        changing<=0;
+        has<=8'b00000001;
+        times<=0;
+        p[0]<=0;
+        p[1]<=0;
+        p[2]<=0;
+        p[3]<=0;
+        red<=1;
+        green<=0;
     end
-    
-    assign changing=r_reset&&r_change;
     
     //倒计时芯片
-    assign start=r_start;
-    assign change=r_change;
-    assign reset=r_reset;
-    Timeout timer(start,change,reset,stop);
+    assign w_start=start;
+    Timeoutt timer(w_start,stop);
     
-    //当输入时开始计时
-    always @(posedge in)
-    begin
-        times=times+1;
-        r_start=1;
-    end
+    always @(green) red=!green;
     
     //判断输入，验证或修改密码
-    always @(posedge in[0])
-        if(changing)
-        begin
-            p[times]=0;
-            times=times+1;
-        end
-        else if(step==4) r_reset=1; //判断是否要修改密码
-        else if(has[0]&&p[step]==0) step=step+1;
-    always @(posedge in[1])
-        if(changing)
-        begin
-            p[times]=1;
-            times=times+1;
-        end
-        else if(has[1]&&p[step]==0) step=step+1;
-    always @(posedge in[2])
-        if(changing)
-        begin
-            p[times]=2;
-            times=times+1;
-        end
-        else if(has[2]&&p[step]==0) step=step+1;
-    always @(posedge in[3])
-        if(changing)
-        begin
-            p[times]=3;
-            times=times+1;
-        end
-        else if(has[3]&&p[step]==0) step=step+1;
-    always @(posedge in[4])
-        if(changing)
-        begin
-            p[times]=4;
-            times=times+1;
-        end
-        else if(has[4]&&p[step]==0) step=step+1;
-    always @(posedge in[5])
-        if(changing)
-        begin
-            p[times]=5;
-            times=times+1;
-        end
-        else if(has[5]&&p[step]==0) step=step+1;
-    always @(posedge in[6])
-        if(changing)
-        begin
-            p[times]=6;
-            times=times+1;
-        end
-        else if(has[6]&&p[step]==0) step=step+1;
-    always @(posedge in[7])
-        if(changing)
-        begin
-            p[times]=7;
-            times=times+1;
-        end
-        else if(has[7]&&p[step]==0) step=step+1;
-    
-    //判断密码输入是否结束
-    always @(step)
-        if(step==4) r_reset=1;
-    
-    //判断修改密码是否结束
-    always @(times)
-        if(times==4)
-        begin
-            r_start<=0;
-            r_change<=0;
-            r_reset<=0;
-            times<=0;
-            red<=1;
-            green<=0;
-        end
-    
-    //倒计时结束
-    always @(posedge stop)
+    always @(in,stop)
     begin
-        if(changing);
-        else if(step==4) r_change<=1;
-        else r_change<=0;
+    if(stop)
+    begin
+        start<=0;
+        green<=0;
+    end
+    else
+    begin
+    if(!start)
+    begin
         step<=0;
         times<=0;
-        r_start<=0;
-        r_reset<=0;
-        if(step==4) red<=0;
-        else red<=1;
-        green<=~red;
+        start<=1;
+    end
+    if(in[0])
+    begin
+        if(changing)
+        begin
+            p[times]<=0;
+            has[0]=1;
+            times<=times+1;
+        end
+        else if(step==4)//判断是否要修改密码
+        begin
+            step<=0;
+            start<=0;
+            changing<=1;
+            #1 start=1;
+        end
+        else if(has[0]&&p[step]==0) step<=step+1;
+    end
+    else if(in[1])
+    begin
+        if(changing)
+        begin
+            p[times]<=1;
+            has[1]=1;
+            times<=times+1;
+        end
+        else if(has[1]&&p[step]==0) step<=step+1;
+    end
+    else if(in[2])
+    begin
+        if(changing)
+        begin
+            p[times]<=2;
+            has[2]=1;
+            times<=times+1;
+        end
+        else if(has[2]&&p[step]==0) step<=step+1;
+    end
+    else if(in[3])
+    begin
+        if(changing)
+        begin
+            p[times]<=3;
+            has[3]=1;
+            times<=times+1;
+        end
+        else if(has[3]&&p[step]==0) step<=step+1;
+    end
+    else if(in[4])
+    begin
+        if(changing)
+        begin
+            p[times]<=4;
+            has[4]=1;
+            times<=times+1;
+        end
+        else if(has[4]&&p[step]==0) step<=step+1;
+    end
+    else if(in[5])
+    begin
+        if(changing)
+        begin
+            p[times]<=5;
+            has[5]=1;
+            times<=times+1;
+        end
+        else if(has[5]&&p[step]==0) step<=step+1;
+    end
+    else if(in[6])
+    begin
+        if(changing)
+        begin
+            p[times]<=6;
+            has[6]=1;
+            times<=times+1;
+        end
+        else if(has[6]&&p[step]==0) step<=step+1;
+    end
+    else if(in[7])
+    begin
+        if(changing)
+        begin
+            p[times]<=7;
+            has[7]=1;
+            times<=times+1;
+        end
+        else if(has[7]&&p[step]==0) step<=step+1;
+    end
+    if(step==0&&times==4)
+    begin
+        start<=0;
+        times<=0;
+        changing<=0;
+        green<=0;
+    end
+    else if(step==4)
+    begin
+        start<=0;
+        times<=0;
+        green<=1;
+        #1 start=1;
+    end
+    end
     end
 endmodule
 
-module Timeoutt(start,change,reset,stop);
+module Timeoutt(start,stop);
     input start;
-    input change;
-    input reset;
     output stop;
+    reg [2:0] counttime;
+    reg [3:0] cnt;
+    reg [3:0] cur;
     reg flag;
     initial flag=0;
-    reg[2:0] counttime;
-    initial {counttime[0],counttime[1],counttime[2]}= 3'b101;
-    always @ (posedge reset)
+    initial cnt=10;
+    initial counttime=0;
+    assign stop=!flag;
+    always #100000000
     begin
-        flag=0;
+        flag=start;
+        if(flag==1)
+        begin
+            if(counttime==0) counttime=5;
+            if(cnt==cur)
+            begin
+                counttime<=counttime-1;
+                if(counttime==0)
+                    flag<=0;
+            end
+        end
+        cnt=(cnt-1==0?cnt-1:10);
     end
-    assign stop=~flag;
-    always @ (posedge start)
-    begin
-        flag=1;
-        counttime=3'b101;
-    end
-    always #1000000000
-    begin
-      if(flag==1)
-      begin
-        counttime=counttime-1;
-        if(counttime==0)
-            flag=0;
-       end
-    end
-    always @ (posedge change) 
-    begin
-        flag=1;
-        counttime=3'b101;
-    end
-    always  #1000000000
-    begin
-       if(flag==1)
-       begin
-         counttime=counttime-1;
-         if(counttime==0)
-             flag=0;
-       end
-    end 
-
+    always @(posedge flag)
+        cur=cnt;
 endmodule
