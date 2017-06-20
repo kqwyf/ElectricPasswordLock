@@ -60,7 +60,6 @@ module Lock(in,green,red);
         green<=0;
     end
     else
-    begin
     if(!start)
     begin
         step<=0;
@@ -167,7 +166,6 @@ module Lock(in,green,red);
         times<=0;
         green<=1;
         #1 start=1;
-    end
     end
     end
 endmodule

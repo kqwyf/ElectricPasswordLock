@@ -2,12 +2,12 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Tue Jun 20 12:34:36 2017
-# Process ID: 3140
-# Current directory: E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1
+# Start of session at: Tue Jun 20 15:14:33 2017
+# Process ID: 12212
+# Current directory: D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1
 # Command line: vivado.exe -log Lock.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Lock.tcl
-# Log file: E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.vds
-# Journal file: E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1\vivado.jou
+# Log file: D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.vds
+# Journal file: D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source Lock.tcl -notrace
 Command: synth_design -top Lock -part xc7a35tcsg324-3
@@ -15,51 +15,50 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t-csg324'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t-csg324'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7908 
+INFO: Helper process launched with PID 11660 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 308.582 ; gain = 81.211
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 308.086 ; gain = 81.156
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'Lock' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:23]
-INFO: [Synth 8-638] synthesizing module 'Timeoutt' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:167]
-WARNING: [Synth 8-85] always block has no event control specified [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:178]
-INFO: [Synth 8-256] done synthesizing module 'Timeoutt' (1#1) [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:167]
-WARNING: [Synth 8-567] referenced signal 'times' should be on the sensitivity list [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:55]
-WARNING: [Synth 8-567] referenced signal 'step' should be on the sensitivity list [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:55]
-WARNING: [Synth 8-567] referenced signal 'has' should be on the sensitivity list [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:55]
-WARNING: [Synth 8-567] referenced signal 'p' should be on the sensitivity list [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:55]
-WARNING: [Synth 8-3848] Net has in module/entity Lock does not have driver. [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:30]
-INFO: [Synth 8-256] done synthesizing module 'Lock' (2#1) [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:23]
+INFO: [Synth 8-638] synthesizing module 'Lock' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:23]
+INFO: [Synth 8-638] synthesizing module 'Timeoutt' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:175]
+WARNING: [Synth 8-85] always block has no event control specified [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:186]
+INFO: [Synth 8-256] done synthesizing module 'Timeoutt' (1#1) [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:175]
+WARNING: [Synth 8-567] referenced signal 'times' should be on the sensitivity list [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:55]
+WARNING: [Synth 8-567] referenced signal 'step' should be on the sensitivity list [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:55]
+WARNING: [Synth 8-567] referenced signal 'p' should be on the sensitivity list [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:55]
+INFO: [Synth 8-256] done synthesizing module 'Lock' (2#1) [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:23]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 347.910 ; gain = 120.539
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 348.164 ; gain = 121.234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 347.910 ; gain = 120.539
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 348.164 ; gain = 121.234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 347.910 ; gain = 120.539
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 348.164 ; gain = 121.234
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7a35tcsg324-3
 INFO: [Synth 8-5544] ROM "counttime" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Device 21-403] Loading part xc7a35tcsg324-3
 INFO: [Synth 8-5546] ROM "p_reg[1]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_reg[0]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "p_reg[1]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "p_reg[0]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-WARNING: [Synth 8-327] inferring latch for variable 'counttime_reg' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:183]
-WARNING: [Synth 8-327] inferring latch for variable 'green_reg' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:60]
-WARNING: [Synth 8-327] inferring latch for variable 'step_reg' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:66]
-WARNING: [Synth 8-327] inferring latch for variable 'times_reg' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:67]
-WARNING: [Synth 8-327] inferring latch for variable 'p_reg[0]' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:74]
-WARNING: [Synth 8-327] inferring latch for variable 'p_reg[1]' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:74]
-WARNING: [Synth 8-327] inferring latch for variable 'start_reg' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:49]
-WARNING: [Synth 8-327] inferring latch for variable 'changing_reg' [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:72]
+WARNING: [Synth 8-327] inferring latch for variable 'counttime_reg' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:191]
+WARNING: [Synth 8-327] inferring latch for variable 'green_reg' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:60]
+WARNING: [Synth 8-327] inferring latch for variable 'step_reg' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:66]
+WARNING: [Synth 8-327] inferring latch for variable 'times_reg' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:67]
+WARNING: [Synth 8-327] inferring latch for variable 'p_reg[0]' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:74]
+WARNING: [Synth 8-327] inferring latch for variable 'p_reg[1]' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:74]
+WARNING: [Synth 8-327] inferring latch for variable 'has_reg' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:75]
+WARNING: [Synth 8-327] inferring latch for variable 'start_reg' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:49]
+WARNING: [Synth 8-327] inferring latch for variable 'changing_reg' [D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:72]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 350.086 ; gain = 122.715
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 348.164 ; gain = 121.234
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -130,33 +129,8 @@ No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3886] merging instance 'step_reg[2]' (LD) to 'step_reg[0]'
-INFO: [Synth 8-3886] merging instance 'step_reg[0]' (LD) to 'step_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (changing_reg)
-INFO: [Synth 8-3886] merging instance 'times_reg[2]' (LD) to 'times_reg[0]'
-INFO: [Synth 8-3886] merging instance 'times_reg[0]' (LD) to 'times_reg[1]'
-INFO: [Synth 8-3886] merging instance 'times_reg[1]' (LD) to 'times_reg[3]'
-INFO: [Synth 8-3886] merging instance 'times_reg[3]' (LD) to 'times_reg[5]'
-INFO: [Synth 8-3886] merging instance 'times_reg[5]' (LD) to 'times_reg[4]'
-WARNING: [Synth 8-3332] Sequential element (p_reg[0][2]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (p_reg[0][1]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (p_reg[0][0]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (p_reg[1][2]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (p_reg[1][1]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (p_reg[1][0]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (changing_reg) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (timer/counttime_reg[2]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (timer/counttime_reg[1]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (timer/counttime_reg[0]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (step_reg[1]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (times_reg[4]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (start_reg) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[3]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[2]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[1]) is unused and will be removed from module Lock.
-WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[0]) is unused and will be removed from module Lock.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 459.156 ; gain = 231.785
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 486.621 ; gain = 259.691
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -169,7 +143,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 459.156 ; gain = 231.785
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 486.621 ; gain = 259.691
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -180,8 +154,15 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (timer/counttime_reg[2]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-3332] Sequential element (timer/counttime_reg[1]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-3332] Sequential element (timer/counttime_reg[0]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[3]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[2]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[1]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-3332] Sequential element (timer/cur_reg[0]) is unused and will be removed from module Lock.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -205,7 +186,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -218,7 +199,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -230,25 +211,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -264,30 +245,45 @@ Report Cell Usage:
 +------+-----+------+
 |      |Cell |Count |
 +------+-----+------+
-|1     |OBUF |     2|
+|1     |LUT1 |     1|
+|2     |LUT2 |     9|
+|3     |LUT3 |    10|
+|4     |LUT4 |    13|
+|5     |LUT5 |    20|
+|6     |LUT6 |    36|
+|7     |LD   |    15|
+|8     |LDC  |    10|
+|9     |LDP  |     1|
+|10    |IBUF |     8|
+|11    |OBUF |     2|
 +------+-----+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |     2|
+|1     |top      |       |   125|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 31 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
-Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 463.074 ; gain = 235.703
+Synthesis finished with 0 errors, 0 critical warnings and 20 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 486.871 ; gain = 259.941
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 34 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 26 instances were transformed.
+  LD => LDCE: 15 instances
+  LDC => LDCE: 10 instances
+  LDP => LDPE: 1 instances
 
-25 Infos, 31 Warnings, 0 Critical Warnings and 0 Errors encountered.
+19 Infos, 20 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 542.691 ; gain = 320.355
-INFO: [Common 17-1381] The checkpoint 'E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 542.691 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Jun 20 12:34:53 2017...
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:21 . Memory (MB): peak = 558.395 ; gain = 336.051
+INFO: [Common 17-1381] The checkpoint 'D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.167 . Memory (MB): peak = 558.395 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 20 15:14:59 2017...
