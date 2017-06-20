@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a35tcsg324-3" LaunchTime="1497942869">
-  <File Type="PA-TCL" Name="Lock.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="Lock_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="Lock.tcl"/>
   <File Type="RDS-RDS" Name="Lock.vds"/>
   <File Type="RDS-UTIL" Name="Lock_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Lock_utilization_synth.pb"/>

@@ -54,10 +54,11 @@ module Lock(in,green,red);
     //判断输入，验证或修改密码
     always @(in,stop)
     begin
-    if(stop)
+    if(start&&stop)
     begin
         start<=0;
         green<=0;
+        $display("stop timing. password wrong.");
     end
     else
     if(!start)
@@ -65,6 +66,7 @@ module Lock(in,green,red);
         step<=0;
         times<=0;
         start<=1;
+        $display("start timing.");
     end
     if(in[0])
     begin
@@ -73,6 +75,7 @@ module Lock(in,green,red);
             p[times]<=0;
             has[0]=1;
             times<=times+1;
+            $display("get a new password char.");
         end
         else if(step==4)//判断是否要修改密码
         begin
@@ -81,7 +84,11 @@ module Lock(in,green,red);
             changing<=1;
             #1 start=1;
         end
-        else if(has[0]&&p[step]==0) step<=step+1;
+        else if(has[0]&&p[step]==0)
+        begin
+            $display("get a zero.");
+            step<=step+1;
+        end
     end
     else if(in[1])
     begin
@@ -159,6 +166,7 @@ module Lock(in,green,red);
         times<=0;
         changing<=0;
         green<=0;
+        $display("new password finished.");
     end
     else if(step==4)
     begin
@@ -166,6 +174,7 @@ module Lock(in,green,red);
         times<=0;
         green<=1;
         #1 start=1;
+        $display("password right.");
     end
     end
 endmodule
@@ -183,7 +192,6 @@ module Timeoutt(start,stop);
     assign stop=!flag;
     always #100000000
     begin
-        flag=start;
         if(flag==1)
         begin
             if(counttime==0) counttime=5;
@@ -196,6 +204,9 @@ module Timeoutt(start,stop);
         end
         cnt=(cnt-1==0?cnt-1:10);
     end
-    always @(posedge flag)
+    always @(start)
+    begin
+        flag=start;
         cur=cnt;
+    end
 endmodule
