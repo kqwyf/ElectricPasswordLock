@@ -59,11 +59,11 @@ module Lock(out1,out2,sel,green,red,alarm,in);
     end
     
     //调用显示模块
-    display d(8'b10000011,
+    /*display d(8'b10000011,
               left/1000+1,
               0,0,0,0,0,
               times/10,
-              times%10);
+              times%10);*/
     
     //信号灯控制
     assign red=~r_green;
@@ -111,10 +111,40 @@ module Lock(out1,out2,sel,green,red,alarm,in);
                 if(changing) p[times]=0;
                 else if(p[step]==0) step<=step+1;
             end
-            else if(in[i]!=last[i])
+            else if(in[1]!=last[1])
             begin
-                if(changing) p[times]=i;
-                else if(p[step]==i) step<=step+1;
+                if(changing) p[times]=1;
+                else if(p[step]==1) step<=step+1;
+            end
+            else if(in[2]!=last[2])
+            begin
+                if(changing) p[times]=2;
+                else if(p[step]==2) step<=step+1;
+            end
+            else if(in[3]!=last[3])
+            begin
+                if(changing) p[times]=3;
+                else if(p[step]==3) step<=step+1;
+            end
+            else if(in[4]!=last[4])
+            begin
+                if(changing) p[times]=4;
+                else if(p[step]==4) step<=step+1;
+            end
+            else if(in[5]!=last[5])
+            begin
+                if(changing) p[times]=5;
+                else if(p[step]==5) step<=step+1;
+            end
+            else if(in[6]!=last[6])
+            begin
+                if(changing) p[times]=6;
+                else if(p[step]==6) step<=step+1;
+            end
+            else if(in[7]!=last[7])
+            begin
+                if(changing) p[times]=7;
+                else if(p[step]==7) step<=step+1;
             end
             times<=times+1;
             last=in;
