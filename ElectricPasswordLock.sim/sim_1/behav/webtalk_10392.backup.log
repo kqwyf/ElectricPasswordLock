@@ -2,13 +2,13 @@
 # Webtalk v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Jun 21 10:45:30 2017
-# Process ID: 5980
+# Start of session at: Wed Jun 21 10:34:38 2017
+# Process ID: 10392
 # Current directory: E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav
 # Command line: wbtcv.exe -mode batch -source E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav/xsim.dir/sim0_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav/webtalk.log
 # Journal file: E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav\webtalk.jou
 #-----------------------------------------------------------
 source E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav/xsim.dir/sim0_behav/webtalk/xsim_webtalk.tcl -notrace
-webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 61.324 ; gain = 0.125
-INFO: [Common 17-206] Exiting Webtalk at Wed Jun 21 10:45:35 2017...
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 61.766 ; gain = 1.141
+INFO: [Common 17-206] Exiting Webtalk at Wed Jun 21 10:34:43 2017...

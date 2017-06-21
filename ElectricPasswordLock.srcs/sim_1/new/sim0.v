@@ -22,20 +22,28 @@
 
 module sim0();
     reg [7:0] in;
-    wire [7:0] w_in;
-    wire green,red;
-    assign w_in=in;
-    Lock l(w_in,green,red);
+    wire green,red,alarm;
+    wire [7:0] out1,out2,sel;
+    Lock l(out1,out2,sel,green,red,alarm,in);
     initial
     begin
         in=0;
-        #10 in[0]=1;
-        #10 in[0]=0;
-        #10 in[0]=1;
-        #10 in[0]=0;
-        #10 in[0]=1;
-        #10 in[0]=0;
-        #10 in[0]=1;
-        #10 in[0]=0;
+        //input wrong
+        #10000000 in[2]=1;
+        #10000000 in[2]=0;
+        #10000000 in[0]=1;
+        #10000000 in[0]=0;
+        //wait
+        //alarm
+        //reinput
+        #47000000000
+        in[0]=1;
+        #5000000 in[0]=0;
+        #5000000 in[0]=1;
+        #5000000 in[0]=0;
+        #5000000 in[0]=1;
+        #5000000 in[0]=0;
+        #5000000 in[0]=1;
+        #5000000 in[0]=0;
     end
 endmodule

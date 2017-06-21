@@ -1,7 +1,7 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Lock
-INFO: [VRFC 10-311] analyzing module Timeoutt
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sim_1/new/sim0.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sim_1/new/sim0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sim0
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+WARNING: [VRFC 10-2495] decimal constant 47000000000 is too large, using -244640256 (i.e limiting to 32 bits) instead [E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/sim_1/new/sim0.v:39]
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.sim/sim_1/behav/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
