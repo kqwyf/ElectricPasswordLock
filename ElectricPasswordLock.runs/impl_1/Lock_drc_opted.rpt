@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Thu Jun 22 21:09:42 2017
-| Host         : LAPTOP-J9UGRQOT running 64-bit major release  (build 9200)
+| Date         : Thu Jun 22 22:59:41 2017
+| Host         : DESKTOP-kqwyf running 64-bit major release  (build 9200)
 | Command      : report_drc -file Lock_drc_opted.rpt
 | Design       : Lock
 | Device       : xc7a35tcsg324-3
@@ -20,7 +20,7 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: checkpoint_Lock
+          Floorplan: design_1
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>

@@ -47,12 +47,17 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint D:/lalala/ElectricPasswordLock/ElectricPasswordLock.runs/impl_1/Lock.dcp
-  set_property webtalk.parent_dir D:/lalala/ElectricPasswordLock/ElectricPasswordLock.cache/wt [current_project]
-  set_property parent.project_path D:/lalala/ElectricPasswordLock/ElectricPasswordLock.xpr [current_project]
-  set_property ip_output_repo D:/lalala/ElectricPasswordLock/ElectricPasswordLock.cache/ip [current_project]
+  set_param xicom.use_bs_reader 1
+  create_project -in_memory -part xc7a35tcsg324-3
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.cache/wt [current_project]
+  set_property parent.project_path D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.xpr [current_project]
+  set_property ip_output_repo D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.dcp
+  read_xdc D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc
+  link_design -top Lock -part xc7a35tcsg324-3
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

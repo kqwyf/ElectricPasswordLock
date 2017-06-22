@@ -22,10 +22,10 @@
 
 module sim0();
     reg [7:0] in;
-    wire [7:0] w_in;
-    wire green,red;
+    wire [7:0] w_in,w_out1,w_out2,sel;
+    wire green,red,alarm;
     assign w_in=in;
-    Lock l(w_in,green,red);
+    Lock l(w_out1,w_out2,sel,green,red,alarm,w_in);
     initial
     begin
         in=0;
