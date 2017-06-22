@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Thu Jun 22 20:43:55 2017
+# Process ID: 25376
+# Current directory: D:/lalala/ElectricPasswordLock
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6464 D:\lalala\ElectricPasswordLock\ElectricPasswordLock.xpr
+# Log file: D:/lalala/ElectricPasswordLock/vivado.log
+# Journal file: D:/lalala/ElectricPasswordLock\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/lalala/ElectricPasswordLock/ElectricPasswordLock.xpr
+INFO: [Project 1-313] Project file moved from 'E:/code/Verilog/ElectricPasswordLock' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'D:/lalala/ElectricPasswordLock/ElectricPasswordLock.ip_user_files', nor could it be found using path 'E:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.ip_user_files'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/anzhuang/Xilinx/Vivado/2017.1/data/ip'.
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 22 20:44:25 2017...
