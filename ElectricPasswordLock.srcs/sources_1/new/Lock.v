@@ -51,10 +51,10 @@ endmodule
 module display(clk,enable,number0,number1,number2,number3,number4,number5,number6,number7,w_out,w_sel);
     input [7:0] enable;
     input clk;
-    input [7:0] number0,number1,number2,number3,number4,number5,number6,number7;
+    input [3:0] number0,number1,number2,number3,number4,number5,number6,number7;
     output [7:0] w_out,w_sel;
     reg [2:0] i;
-    reg [3:0]source;
+    reg [3:0] source;
     reg [7:0] sel;
     assign w_sel=sel;
     initial i=0;
@@ -63,7 +63,7 @@ module display(clk,enable,number0,number1,number2,number3,number4,number5,number
     translator t(source,w_out);
     always @(posedge clk)
     begin
-        sel=0;
+        sel=8'b00000000;
         sel[i]=enable[i];
         if(i==0)
             source=number0;
@@ -91,8 +91,9 @@ module Lock(out1,out2,sel,green,red,alarm,in);
     output green,red,alarm;
     assign out2=out1;
     reg [2:0] step;
-    reg [5:0] times;
-    reg [13:0] left;
+    reg [4:0] times1,times0;
+    reg [9:0] left;
+    reg [2:0] lefttime;
     reg [7:0] last;
     reg [2:0] p [3:0];//ÃÜÂë
     reg r_green,clk;
@@ -100,39 +101,45 @@ module Lock(out1,out2,sel,green,red,alarm,in);
     reg inputing,changing,waiting,timing,alarming;
     assign alarm=alarming;
     
+    always @(times0)
+        if(times0==0) times1=times1+1;
+    
     initial
     begin
-        step<=0;
-        times<=0;
-        left<=2999;
-        r_green<=0;
+        step=0;
+        times0=0;
+        times1=0;
+        left=500;
+        lefttime=5;
+        r_green=0;
         
-        inputing<=0;
-        changing<=0;
-        waiting<=0;
-        timing<=0;
-        alarming<=0;
+        inputing=0;
+        changing=0;
+        waiting=0;
+        timing=0;
+        alarming=0;
         
-        p[0]<=0;//³õÊ¼ÃÜÂë
-        p[1]<=0;
-        p[2]<=0;
-        p[3]<=0;
+        p[0]=0;//³õÊ¼ÃÜÂë
+        p[1]=0;
+        p[2]=0;
+        p[3]=0;
         
-        last<=in;
+        last=in;
         
         clk=0;
+        forever #1000000 clk=~clk;
     end
     
     //Ê±ÖÓ
-    always #1000000 clk=~clk;
+    //always #1000000 clk=~clk;
     
     //µ÷ÓÃÏÔÊ¾Ä£¿é
     display d(clk,
               8'b10000011,
-              left/500,
+              lefttime,
               0,0,0,0,0,
-              times/10,
-              times%10,
+              times1,
+              times0,
               out1,sel);
     
     //ĞÅºÅ¿ØÖÆ
@@ -143,12 +150,21 @@ module Lock(out1,out2,sel,green,red,alarm,in);
     //Ê±ĞòÂß¼­
     always @(posedge clk)
     begin
-        if(timing) left=left-1;
-        if(changing&&times==4) //ĞŞ¸ÄÃÜÂëÍê±Ï
+        if(timing)
+        begin
+            left=left-1;
+            if(left==0)
+            begin
+                lefttime=lefttime-1;
+                left=500;
+            end
+        end
+        if(changing&&times0==4) //ĞŞ¸ÄÃÜÂëÍê±Ï
         begin
             $display("changing finished.");
             r_green<=0;
-            times=0;
+            times0=0;
+            times1=0;
             inputing<=0;
             changing<=0;
         end
@@ -157,10 +173,12 @@ module Lock(out1,out2,sel,green,red,alarm,in);
             $display("password right.");
             alarming<=0;
             r_green<=1;
-            times=0;
+            times0=0;
+            times1=0;
             step=0;
             waiting=1;
-            left=2999;
+            lefttime=5;
+            left=500;
         end
         else if(in>last)
         begin
@@ -168,7 +186,8 @@ module Lock(out1,out2,sel,green,red,alarm,in);
             begin
                 $display("start input.");
                 timing<=1;
-                left=2999;
+                lefttime<=5;
+                left=500;
                 inputing<=1;
             end
             if(in[0]&&!last[0])
@@ -178,62 +197,71 @@ module Lock(out1,out2,sel,green,red,alarm,in);
                     $display("changing start.");
                     changing=1;
                     waiting=0;
-                    times=0;
-                    left=0;
+                    times0=0;
+                    times1=0;
+                    lefttime=0;
                     timing=0;
                 end
                 else
                 begin
-                    if(changing) p[times]=0;
+                    if(changing) p[times0]=0;
                     else if(p[step]==0) step=step+1;
-                    times<=times+1;
+                    if(times0<9) times0<=times0+1;
+                    else times0=0;
                 end
             end
             else if(in[1]&&!last[1])
             begin
-                if(changing) p[times]=1;
+                if(changing) p[times0]=1;
                 else if(p[step]==1) step<=step+1;
-                times<=times+1;
+                if(times0<9) times0<=times0+1;
+                else times0=0;
             end
             else if(in[2]&&!last[2])
             begin
-                if(changing) p[times]=2;
+                if(changing) p[times0]=2;
                 else if(p[step]==2) step<=step+1;
-                times<=times+1;
+                if(times0<9) times0<=times0+1;
+                else times0=0;
             end
             else if(in[3]&&!last[3])
             begin
-                if(changing) p[times]=3;
+                if(changing) p[times0]=3;
                 else if(p[step]==3) step<=step+1;
-                times<=times+1;
+                if(times0<9) times0<=times0+1;
+                else times0=0;
             end
             else if(in[4]&&!last[4])
             begin
-                if(changing) p[times]=4;
+                if(changing) p[times0]=4;
                 else if(p[step]==4) step<=step+1;
-                times<=times+1;
+                if(times0<9) times0<=times0+1;
+                else times0=0;
             end
             else if(in[5]&&!last[5])
             begin
-                if(changing) p[times]=5;
+                if(changing) p[times0]=5;
                 else if(p[step]==5) step<=step+1;
-                times<=times+1;
+                if(times0<9) times0<=times0+1;
+                else times0=0;
             end
             else if(in[6]&&!last[6])
             begin
-                if(changing) p[times]=6;
+                if(changing) p[times0]=6;
                 else if(p[step]==6) step<=step+1;
-                times<=times+1;
+                if(times0<9) times0<=times0+1;
+                else times0=0;
             end
             else if(in[7]&&!last[7])
             begin
-                if(changing) p[times]=7;
+                if(changing) p[times0]=7;
                 else if(p[step]==7) step<=step+1;
-                times<=times+1;
+                if(times0<9) times0<=times0+1;
+                else times0=0;
             end
         end
         last=in;
-        if(timing&&left<500)
+        if(timing&&lefttime==0)
         begin
             if(waiting) //²»ĞŞ¸ÄÃÜÂë
             begin
@@ -242,7 +270,8 @@ module Lock(out1,out2,sel,green,red,alarm,in);
                 waiting<=0;
                 timing<=0;
                 inputing<=0;
-                times<=0;
+                times0=0;
+                times1=0;
             end
             else if(inputing) //ÊäÈëÃÜÂë³¬Ê±
             begin
@@ -250,7 +279,8 @@ module Lock(out1,out2,sel,green,red,alarm,in);
                 alarming<=1;
                 inputing<=0;
                 timing<=0;
-                times<=0;
+                times0=0;
+                times1=0;
                 step<=0;
                 r_green<=0;
             end
