@@ -85,61 +85,45 @@ module display(clk,enable,number0,number1,number2,number3,number4,number5,number
     end
 endmodule
 
-module Lock(out1,out2,sel,green,red,alarm,in);
+module Lock(out1,out2,sel,green,red,alarm,in,CK);
     input [7:0] in;
+    input CK;
     output [7:0] out1,out2,sel;
     output green,red,alarm;
     assign out2=out1;
-    reg [2:0] step;
-    reg [4:0] times1,times0;
-    reg [9:0] left;
-    reg [2:0] lefttime;
+    reg [2:0] step=0;
+    reg [17:0] CKn=0;
+    reg [3:0] times1,times0;
+    reg [9:0] left=500;
+    reg [3:0] lefttime=5;
     reg [7:0] last;
     reg [2:0] p [3:0];//密码
-    reg r_green,clk;
+    reg r_green=0,clk,init=0;
+    wire [3:0] w_times0,w_times1;
+    assign w_times0=times0;
+    assign w_times1=times1;
     
-    reg inputing,changing,waiting,timing,alarming;
+    reg inputing=0,changing=0,waiting=0,timing=0,alarming=0;
     assign alarm=alarming;
     
-    always @(times0)
-        if(times0==0) times1=times1+1;
-    
-    initial
-    begin
-        step=0;
-        times0=0;
-        times1=0;
-        left=500;
-        lefttime=5;
-        r_green=0;
-        
-        inputing=0;
-        changing=0;
-        waiting=0;
-        timing=0;
-        alarming=0;
-        
-        p[0]=0;//初始密码
-        p[1]=0;
-        p[2]=0;
-        p[3]=0;
-        
-        last=in;
-        
-        clk=0;
-        forever #1000000 clk=~clk;
-    end
-    
     //时钟
-    //always #1000000 clk=~clk;
+    always @(posedge CK)
+    begin
+        CKn=CKn+1;
+        if(CK==100000)
+        begin
+            CKn=0;
+            clk=~clk;
+        end
+    end
     
     //调用显示模块
     display d(clk,
               8'b10000011,
               lefttime,
               0,0,0,0,0,
-              times1,
-              times0,
+              w_times1,
+              w_times0,
               out1,sel);
     
     //信号控制
@@ -150,6 +134,15 @@ module Lock(out1,out2,sel,green,red,alarm,in);
     //时序逻辑
     always @(posedge clk)
     begin
+        if(!init)
+        begin
+            init=1;
+            p[0]=0;
+            p[1]=0;
+            p[2]=0;
+            p[3]=0;
+            last=in;
+        end
         if(timing)
         begin
             left=left-1;
@@ -207,7 +200,11 @@ module Lock(out1,out2,sel,green,red,alarm,in);
                     if(changing) p[times0]=0;
                     else if(p[step]==0) step=step+1;
                     if(times0<9) times0<=times0+1;
-                    else times0=0;
+                    else
+                    begin
+                        times0=0;
+                        times1=times1+1;
+                    end
                 end
             end
             else if(in[1]&&!last[1])
@@ -215,49 +212,77 @@ module Lock(out1,out2,sel,green,red,alarm,in);
                 if(changing) p[times0]=1;
                 else if(p[step]==1) step<=step+1;
                 if(times0<9) times0<=times0+1;
-                else times0=0;
+                else
+                begin
+                    times0=0;
+                    times1=times1+1;
+                end
             end
             else if(in[2]&&!last[2])
             begin
                 if(changing) p[times0]=2;
                 else if(p[step]==2) step<=step+1;
                 if(times0<9) times0<=times0+1;
-                else times0=0;
+                else
+                begin
+                    times0=0;
+                    times1=times1+1;
+                end
             end
             else if(in[3]&&!last[3])
             begin
                 if(changing) p[times0]=3;
                 else if(p[step]==3) step<=step+1;
                 if(times0<9) times0<=times0+1;
-                else times0=0;
+                else
+                begin
+                    times0=0;
+                    times1=times1+1;
+                end
             end
             else if(in[4]&&!last[4])
             begin
                 if(changing) p[times0]=4;
                 else if(p[step]==4) step<=step+1;
                 if(times0<9) times0<=times0+1;
-                else times0=0;
+                else
+                begin
+                    times0=0;
+                    times1=times1+1;
+                end
             end
             else if(in[5]&&!last[5])
             begin
                 if(changing) p[times0]=5;
                 else if(p[step]==5) step<=step+1;
                 if(times0<9) times0<=times0+1;
-                else times0=0;
+                else
+                begin
+                    times0=0;
+                    times1=times1+1;
+                end
             end
             else if(in[6]&&!last[6])
             begin
                 if(changing) p[times0]=6;
                 else if(p[step]==6) step<=step+1;
                 if(times0<9) times0<=times0+1;
-                else times0=0;
+                else
+                begin
+                    times0=0;
+                    times1=times1+1;
+                end
             end
             else if(in[7]&&!last[7])
             begin
                 if(changing) p[times0]=7;
                 else if(p[step]==7) step<=step+1;
                 if(times0<9) times0<=times0+1;
-                else times0=0;
+                else
+                begin
+                    times0=0;
+                    times1=times1+1;
+                end
             end
         end
         last=in;

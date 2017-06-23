@@ -68,3 +68,6 @@ set_property PACKAGE_PIN G6 [get_ports {sel[0]}]
 set_property PACKAGE_PIN K3 [get_ports alarm]
 set_property PACKAGE_PIN H6 [get_ports green]
 set_property PACKAGE_PIN K1 [get_ports red]
+
+set_property IOSTANDARD LVCMOS33 [get_ports CK]
+set_property PACKAGE_PIN P17 [get_ports CK]
