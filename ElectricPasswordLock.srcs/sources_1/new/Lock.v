@@ -43,23 +43,20 @@ module translator(w_in,w_out);
         else if(w_in==7)
             out=8'b11100000; 
         else if(w_in==8)
-            out=8'b11111111;
+            out=8'b11111110;
         else if(w_in==9)
-            out=8'b11110111;
+            out=8'b11110110;
 endmodule
 
-module display(clk,enable,number0,number1,number2,number3,number4,number5,number6,number7,w_out,w_sel);
+module display(clk,enable,number7,number6,number5,number4,number3,number2,number1,number0,w_out,w_sel);
     input [7:0] enable;
     input clk;
     input [3:0] number0,number1,number2,number3,number4,number5,number6,number7;
     output [7:0] w_out,w_sel;
-    reg [2:0] i;
-    reg [3:0] source;
-    reg [7:0] sel;
+    reg [2:0] i=0;
+    reg [3:0] source=0;
+    reg [7:0] sel=0;
     assign w_sel=sel;
-    initial i=0;
-    initial sel=0;
-    initial source=0;
     translator t(source,w_out);
     always @(posedge clk)
     begin
@@ -95,10 +92,10 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
     reg [17:0] CKn=0;
     reg [3:0] times1,times0;
     reg [9:0] left=500;
-    reg [3:0] lefttime=5;
+    reg [3:0] lefttime=0;
     reg [7:0] last;
     reg [2:0] p [3:0];//密码
-    reg r_green=0,clk,init=0;
+    reg r_green=0,clk=0,init=0;
     wire [3:0] w_times0,w_times1;
     assign w_times0=times0;
     assign w_times1=times1;
@@ -109,12 +106,12 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
     //时钟
     always @(posedge CK)
     begin
-        CKn=CKn+1;
-        if(CK==100000)
+        if(CKn==100000)
         begin
-            CKn=0;
+            CKn=1;
             clk=~clk;
         end
+        else CKn=CKn+1;
     end
     
     //调用显示模块
@@ -145,12 +142,12 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
         end
         if(timing)
         begin
-            left=left-1;
             if(left==0)
             begin
                 lefttime=lefttime-1;
                 left=500;
             end
+            else left=left-1;
         end
         if(changing&&times0==4) //修改密码完毕
         begin
