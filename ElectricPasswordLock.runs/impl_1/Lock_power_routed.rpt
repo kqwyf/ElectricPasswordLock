@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Sat Jun 24 00:44:51 2017
+| Date             : Sat Jun 24 21:43:59 2017
 | Host             : DESKTOP-kqwyf running 64-bit major release  (build 9200)
 | Command          : report_power -file Lock_power_routed.rpt -pb Lock_power_summary_routed.pb -rpx Lock_power_routed.rpx
 | Design           : Lock
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.491 |
-| Dynamic (W)              | 0.421 |
+| Total On-Chip Power (W)  | 0.504 |
+| Dynamic (W)              | 0.435 |
 | Device Static (W)        | 0.069 |
 | Effective TJA (C/W)      | 4.8   |
-| Max Ambient (C)          | 97.7  |
-| Junction Temperature (C) | 27.3  |
+| Max Ambient (C)          | 97.6  |
+| Junction Temperature (C) | 27.4  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -49,16 +49,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.196 |      273 |       --- |             --- |
-|   LUT as Logic |     0.161 |      138 |     20800 |            0.66 |
-|   Register     |     0.015 |       88 |     41600 |            0.21 |
+| Slice Logic    |     0.215 |      279 |       --- |             --- |
+|   LUT as Logic |     0.180 |      142 |     20800 |            0.68 |
+|   Register     |     0.015 |       87 |     41600 |            0.21 |
 |   CARRY4       |     0.014 |        6 |      8150 |            0.07 |
 |   BUFG         |     0.006 |        2 |        32 |            6.25 |
-|   Others       |     0.000 |        6 |       --- |             --- |
-| Signals        |     0.189 |      213 |       --- |             --- |
+|   Others       |     0.000 |        5 |       --- |             --- |
+| Signals        |     0.184 |      222 |       --- |             --- |
 | I/O            |     0.036 |       36 |       210 |           17.14 |
 | Static Power   |     0.069 |          |           |                 |
-| Total          |     0.491 |          |           |                 |
+| Total          |     0.504 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -68,7 +68,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.432 |       0.421 |      0.010 |
+| Vccint    |       1.000 |     0.445 |       0.435 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -135,8 +135,8 @@ Table of Contents
 +-------+-----------+
 | Name  | Power (W) |
 +-------+-----------+
-| Lock  |     0.421 |
-|   d   |     0.143 |
+| Lock  |     0.435 |
+|   d   |     0.151 |
 |     t |     0.000 |
 +-------+-----------+
 

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Sat Jun 24 00:44:49 2017
+| Date         : Sat Jun 24 21:43:56 2017
 | Host         : DESKTOP-kqwyf running 64-bit major release  (build 9200)
 | Command      : report_drc -file Lock_drc_routed.rpt -pb Lock_drc_routed.pb -rpx Lock_drc_routed.rpx
 | Design       : Lock
@@ -24,12 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 2
+             Violations found: 4
 +----------+----------+-----------------------------------------------------+------------+
 | Rule     | Severity | Description                                         | Violations |
 +----------+----------+-----------------------------------------------------+------------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| PDRC-153 | Warning  | Gated clock check                                   | 1          |
+| PDRC-153 | Warning  | Gated clock check                                   | 3          |
 +----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -48,6 +48,16 @@ Refer to the device configuration user guide for more information.
 Related violations: <none>
 
 PDRC-153#1 Warning
+Gated clock check  
+Net d/t/out_reg[5]_i_2_n_0 is a gated clock net sourced by a combinational pin d/t/out_reg[5]_i_2/O, cell d/t/out_reg[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net d/t/out_reg[6]_i_2_n_0 is a gated clock net sourced by a combinational pin d/t/out_reg[6]_i_2/O, cell d/t/out_reg[6]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
 Gated clock check  
 Net d/t/out_reg[7]_i_2_n_0 is a gated clock net sourced by a combinational pin d/t/out_reg[7]_i_2/O, cell d/t/out_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>

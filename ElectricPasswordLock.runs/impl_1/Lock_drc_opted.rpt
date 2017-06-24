@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Sat Jun 24 00:44:22 2017
+| Date         : Sat Jun 24 21:43:31 2017
 | Host         : DESKTOP-kqwyf running 64-bit major release  (build 9200)
 | Command      : report_drc -file Lock_drc_opted.rpt
 | Design       : Lock
