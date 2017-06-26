@@ -82,26 +82,158 @@ module display(clk,enable,number7,number6,number5,number4,number3,number2,number
     end
 endmodule
 
-module Lock(out1,out2,sel,green,red,alarm,in,CK);
+module encoder83(in,out,yes);
+    input [7:0] in;
+    output [2:0] out;
+    output yes;
+    reg [2:0] out;
+    assign yes=!(in==8'b00000000);
+    
+    always @(in)
+    begin
+        if(in==8'b00000000)
+            out=0;
+        else if(in==8'b00000001)
+            out=0;
+        else if(in==8'b00000010)
+            out=000;
+        else if(in==8'b00000100)
+            out=000;
+        else if(in==8'b00000000)
+            out=000;
+        else if(in==8'b00000000)
+                out=000;
+                 if(in==8'b00000000)
+                   out=000;
+                    if(in==8'b00000000)
+                      out=000;
+                       if(in==8'b00000000)
+                         out=000;
+    end
+    
+endmodule
+
+module memory(clk,in,stat,clr,out,t1,t0);
+    input [2:0] in;
+    input clk,stat,clr; //stat=0为输入密码，stat=1为修改密码
+    output out;//标志输入结束
+    output [3:0] t1,t0;
+    
+    reg [2:0] password [3:0];
+    reg init=0;
+    reg r_out=0;
+    reg [2:0] step=0;
+    reg [3:0] times1=0,times0=0;
+    assign out=r_out;
+    assign t1=times1;
+    assign t0=times0;
+    
+    always @(clk,clr)
+    begin
+        if(clr)
+        begin
+            times0=0;
+            times1=0;
+            step=0;
+        end
+        else
+        begin
+        //可能的初始化
+        if(!init) 
+        begin
+            init=1;
+            password[0]=0;
+            password[1]=0;
+            password[2]=0;
+            password[3]=0;
+        end
+        
+        //清零step
+        if(step==4) step=0;
+        
+        //记录按键次数
+        if(times0==9)
+        begin
+            times0=0;
+            times1=times1+1;
+        end
+        else times0=times0+1;
+        
+        //输入
+        if(!stat)
+        begin
+            if(password[step]==in) step=step+1;
+        end
+        else if(step!=4)
+        begin
+            password[step]=in;
+            step=step+1;
+        end
+        
+        //判断是否输入结束
+        if(step==4)
+        begin
+            r_out=1;
+            times0=0;
+            times1=0;
+        end
+        end
+    end
+endmodule
+
+module CPU(clock,
+           sel,
+           green,
+           red,
+           alarm,
+           n2,
+           n3,
+           n4,
+           n5,
+           n6,
+           n7,
+           in,
+           memclk,
+           memin,
+           memstat,
+           memclr,
+           memfinish,
+           CK
+          );
     input [7:0] in;
     input CK;
-    output [7:0] out1,out2,sel;
-    output green,red,alarm;
-    assign out2=out1;
-    reg [2:0] step=0;
+    input memfinish;
+    output [3:0] n2,n3,n4,n5,n6,n7;
+    output [7:0] sel;
+    output [2:0] memin;
+    output memclk,memstat,memclr;
+    output green,red,alarm,clock;
+    
+    //时序控制寄存器
     reg [17:0] CKn=0;
-    reg [3:0] times1,times0;
     reg [9:0] left=500;
     reg [3:0] lefttime=0;
-    reg [7:0] last;
-    reg [2:0] p [3:0];//密码
-    reg r_green=0,clk=0,init=0;
-    wire [3:0] w_times0,w_times1;
-    assign w_times0=times0;
-    assign w_times1=times1;
     
+    //状态寄存器
+    reg [7:0] last;
+    reg [7:0] select=8'b10000011;
+    
+    //信号发射寄存器
+    reg r_green=0,clk=0;
     reg inputing=0,changing=0,waiting=0,timing=0,alarming=0;
+    
+    wire hasinput;
+    
+    //信号控制
+    assign red=~r_green;
+    assign green=r_green;
     assign alarm=alarming;
+    assign clock=clk;
+    
+    //数码显示控制
+    assign n7=lefttime;
+    //assign Error.
+    assign n6=8'b00000000;
     
     //时钟
     always @(posedge CK)
@@ -114,32 +246,13 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
         else CKn=CKn+1;
     end
     
-    //调用显示模块
-    display d(clk,
-              8'b10000011,
-              lefttime,
-              0,0,0,0,0,
-              w_times1,
-              w_times0,
-              out1,sel);
-    
-    //信号控制
-    assign red=~r_green;
-    assign green=r_green;
-    assign alarm=alarming;
+    //编码
+    encoder83(in^last,memin,hasinput);
     
     //时序逻辑
     always @(posedge clk)
     begin
-        if(!init)
-        begin
-            init=1;
-            p[0]=0;
-            p[1]=0;
-            p[2]=0;
-            p[3]=0;
-            last=in;
-        end
+        //计时
         if(timing)
         begin
             if(left==0)
@@ -149,6 +262,7 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
             end
             else left=left-1;
         end
+        
         if(changing&&times0==4) //修改密码完毕
         begin
             $display("changing finished.");
@@ -308,4 +422,23 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
             end
         end
     end
+endmodule
+
+module Lock(clk,in,CK,out,sel);
+    input clk,CK;
+    input [7:0] in;
+    output [7:0] out,sel;
+    
+    wire clk,select,green,red,alarm,n2,n3,n4,n5,n6,n7,t0,t1,mclk,min,mstat,mclr,mfinish;
+    
+    CPU cpu(clk,
+            select,
+            green,
+            red,
+            alarm,
+            n2,n3,n4,n5,n6,n7,
+            in,
+            mclk,min,mstat,mclr,mfinish,CK);
+    memory mem(mclk,min,mstat,mclr,mfinish,t1,t0);
+    display screen(clk,select,n7,n6,n5,n4,n3,n2,t1,t0,out,sel);
 endmodule

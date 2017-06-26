@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/code/Verilog/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc rfile:../../../ElectricPasswordLock.srcs/constrs_1/new/c.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc rfile:../../../ElectricPasswordLock.srcs/constrs_1/new/c.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:36 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN P5 [get_ports {in[7]}]
 set_property src_info {type:XDC file:1 line:37 export:INPUT save:INPUT read:READ} [current_design]
