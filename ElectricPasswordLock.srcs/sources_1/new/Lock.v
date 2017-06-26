@@ -96,19 +96,19 @@ module encoder83(in,out,yes);
         else if(in==8'b00000001)
             out=0;
         else if(in==8'b00000010)
-            out=000;
+            out=1;
         else if(in==8'b00000100)
-            out=000;
-        else if(in==8'b00000000)
-            out=000;
-        else if(in==8'b00000000)
-                out=000;
-                 if(in==8'b00000000)
-                   out=000;
-                    if(in==8'b00000000)
-                      out=000;
-                       if(in==8'b00000000)
-                         out=000;
+            out=2;
+        else if(in==8'b00001000)
+            out=3;
+        else if(in==8'b00010000)
+            out=4;
+        else if(in==8'b00100000)
+            out=5;
+        else if(in==8'b01000000)
+            out=6;
+        else if(in==8'b10000000)
+            out=7;
     end
     
 endmodule
@@ -233,7 +233,11 @@ module CPU(clock,
     //数码显示控制
     assign n7=lefttime;
     //assign Error.
-    assign n6=8'b00000000;
+    assign n6=8'b10011110;
+    assign n5=8'b00001010;
+    assign n4=8'b00001010;
+    assign n3=8'b00111010;
+    assign n2=8'b00001011;
     
     //时钟
     always @(posedge CK)
