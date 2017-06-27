@@ -46,6 +46,14 @@ module translator(w_in,w_out);
             out=8'b11111110;
         else if(w_in==9)
             out=8'b11110110;
+        else if(w_in==10)
+            out=8'b10011110;
+        else if(w_in==11)
+            out=8'b00001010;
+        else if(w_in==12)
+            out=8'b00111010;
+        else if(w_in==13)
+            out=8'b00001011;
 endmodule
 
 module display(clk,enable,number7,number6,number5,number4,number3,number2,number1,number0,w_out,w_sel);
@@ -96,6 +104,7 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
     reg [7:0] last;
     reg [2:0] p [3:0];//密码
     reg r_green=0,clk=0,init=0;
+    reg [7:0] select=8'b10000011;
     wire [3:0] w_times0,w_times1;
     assign w_times0=times0;
     assign w_times1=times1;
@@ -116,9 +125,13 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
     
     //调用显示模块
     display d(clk,
-              8'b10000011,
+              select,
               lefttime,
-              0,0,0,0,0,
+              10,
+              11,
+              11,
+              12,
+              13,
               w_times1,
               w_times0,
               out1,sel);
@@ -177,6 +190,7 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
                 $display("start input.");
                 timing<=1;
                 lefttime<=5;
+                select<=8'b10000011;
                 left=500;
                 inputing<=1;
             end
@@ -303,6 +317,7 @@ module Lock(out1,out2,sel,green,red,alarm,in,CK);
                 timing<=0;
                 times0=0;
                 times1=0;
+                select<=8'b11111111;
                 step<=0;
                 r_green<=0;
             end
