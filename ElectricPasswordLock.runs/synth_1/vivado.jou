@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Tue Jun 27 10:42:54 2017
-# Process ID: 20388
+# Start of session at: Tue Jun 27 11:18:25 2017
+# Process ID: 28908
 # Current directory: D:/lalala/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1
 # Command line: vivado.exe -log Lock.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Lock.tcl
 # Log file: D:/lalala/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.vds

@@ -353,15 +353,17 @@ module CPU(clock,
     end
 endmodule
 
-module Lock(in,CK,out,sel);
+module Lock(in,CK,out1,out2,sel,green,red,alarm);
     input CK;
     input [7:0] in;
-    output [7:0] out,sel;
+    output [7:0] out1,out2,sel;
+    output green,red,alarm;
     
-    wire clk,green,red,alarm,mclk,mstat,mclr,mfinish;
+    wire clk,mclk,mstat,mclr,mfinish;
     wire [7:0] select;
     wire [3:0] n2,n3,n4,n5,n6,n7,t0,t1;
     wire [2:0] min;
+    assign out2=out1;
     
     CPU cpu(clk,
             select,
@@ -372,5 +374,5 @@ module Lock(in,CK,out,sel);
             in,
             mclk,min,mstat,mclr,mfinish,CK);
     memory mem(mclk,min,mstat,mclr,mfinish,t1,t0);
-    display screen(clk,select,n7,n6,n5,n4,n3,n2,t1,t0,out,sel);
+    display screen(clk,select,n7,n6,n5,n4,n3,n2,t1,t0,out1,sel);
 endmodule
