@@ -239,6 +239,7 @@ module CPU(clock,
     assign green=r_green;
     assign alarm=alarming;
     assign clock=clk;
+    assign sel=select;
     
     //数码显示控制
     assign n7=lefttime;
@@ -261,7 +262,7 @@ module CPU(clock,
     end
     
     //编码
-    encoder83(in^last,memin,hasinput);
+    encoder83 encoder(in^last,memin,hasinput);
     
     //时序逻辑
     always @(posedge clk)
@@ -308,8 +309,9 @@ module CPU(clock,
                 $display("start input.");
                 timing<=1;
                 lefttime<=5;
-                left=500;
                 inputing<=1;
+                select<=8'b10000011;
+                left=500;
             end
             if(waiting)
             begin
@@ -343,19 +345,23 @@ module CPU(clock,
                 alarming<=1;
                 inputing<=0;
                 timing<=0;
-                memclr=1;
                 r_green<=0;
+                select<=8'b11111111;
+                memclr=1;
             end
         end
     end
 endmodule
 
-module Lock(clk,in,CK,out,sel);
-    input clk,CK;
+module Lock(in,CK,out,sel);
+    input CK;
     input [7:0] in;
     output [7:0] out,sel;
     
-    wire clk,select,green,red,alarm,n2,n3,n4,n5,n6,n7,t0,t1,mclk,min,mstat,mclr,mfinish;
+    wire clk,green,red,alarm,mclk,mstat,mclr,mfinish;
+    wire [7:0] select;
+    wire [3:0] n2,n3,n4,n5,n6,n7,t0,t1;
+    wire [2:0] min;
     
     CPU cpu(clk,
             select,

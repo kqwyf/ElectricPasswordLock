@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Mon Jun 26 19:43:49 2017
-# Process ID: 10396
+# Start of session at: Tue Jun 27 10:42:54 2017
+# Process ID: 20388
 # Current directory: D:/lalala/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1
 # Command line: vivado.exe -log Lock.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Lock.tcl
 # Log file: D:/lalala/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.vds
@@ -15,18 +15,27 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t-csg324'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t-csg324'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 28020 
+INFO: Helper process launched with PID 12628 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 306.156 ; gain = 80.656
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 306.484 ; gain = 80.598
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'Lock' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:85]
+INFO: [Synth 8-638] synthesizing module 'Lock' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:356]
+INFO: [Synth 8-638] synthesizing module 'CPU' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:185]
+INFO: [Synth 8-638] synthesizing module 'encoder83' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:85]
+INFO: [Synth 8-256] done synthesizing module 'encoder83' (1#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:85]
+INFO: [Synth 8-256] done synthesizing module 'CPU' (2#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:185]
+INFO: [Synth 8-638] synthesizing module 'memory' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:116]
+WARNING: [Synth 8-567] referenced signal 'stat' should be on the sensitivity list [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:131]
+WARNING: [Synth 8-567] referenced signal 'in' should be on the sensitivity list [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:131]
+INFO: [Synth 8-256] done synthesizing module 'memory' (3#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:116]
 INFO: [Synth 8-638] synthesizing module 'display' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:51]
 INFO: [Synth 8-638] synthesizing module 'translator' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:22]
-INFO: [Synth 8-256] done synthesizing module 'translator' (1#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:22]
-INFO: [Synth 8-256] done synthesizing module 'display' (2#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:51]
-INFO: [Synth 8-256] done synthesizing module 'Lock' (3#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:85]
+INFO: [Synth 8-256] done synthesizing module 'translator' (4#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:22]
+INFO: [Synth 8-256] done synthesizing module 'display' (5#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:51]
+INFO: [Synth 8-256] done synthesizing module 'Lock' (6#1) [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:356]
+WARNING: [Synth 8-3331] design memory has unconnected port clk
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 346.234 ; gain = 120.734
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 346.563 ; gain = 120.676
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -36,7 +45,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 346.234 ; gain = 120.734
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 346.563 ; gain = 120.676
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcsg324-3
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -44,6 +53,120 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc]
+WARNING: [Vivado 12-584] No ports matched 'out1[7]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[6]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[5]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[4]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[3]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[2]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[1]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[0]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[7]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[6]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[5]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[4]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[3]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[2]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[1]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[0]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'alarm'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'green'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'red'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[7]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:44]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:44]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[6]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[5]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[4]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:47]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:47]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[3]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[2]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[1]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:50]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out1[0]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:51]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:51]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[7]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:52]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:52]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[6]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:53]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:53]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[5]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:54]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:54]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[4]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:55]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:55]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[3]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:56]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:56]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[2]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:57]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:57]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[1]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:58]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:58]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'out2[0]'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:59]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'alarm'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'green'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'red'. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/constrs_1/new/c.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Lock_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Lock_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
@@ -52,45 +175,39 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 645.359 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 643.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "clk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "times1" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "times1" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-WARNING: [Synth 8-6014] Unused sequential element lefttime_reg was removed.  [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:120]
-INFO: [Synth 8-5546] ROM "clk" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "step" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+WARNING: [Synth 8-327] inferring latch for variable 'out_reg' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:95]
+WARNING: [Synth 8-327] inferring latch for variable 'r_out_reg' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:127]
+WARNING: [Synth 8-327] inferring latch for variable 'times1_reg' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:128]
+WARNING: [Synth 8-327] inferring latch for variable 'step_reg' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:137]
+WARNING: [Synth 8-327] inferring latch for variable 'init_reg' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:143]
+WARNING: [Synth 8-327] inferring latch for variable 'password_reg[0]' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:146]
+WARNING: [Synth 8-327] inferring latch for variable 'password_reg[1]' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:146]
+WARNING: [Synth 8-327] inferring latch for variable 'password_reg[2]' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:146]
+WARNING: [Synth 8-327] inferring latch for variable 'password_reg[3]' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:146]
 WARNING: [Synth 8-327] inferring latch for variable 'out_reg' [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:27]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -105,26 +222,31 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     18 Bit       Adders := 1     
 	   2 Input     10 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 4     
+	   2 Input      4 Bit       Adders := 3     
 	   2 Input      3 Bit       Adders := 2     
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
 +---Registers : 
 	               18 Bit    Registers := 1     
 	               10 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                4 Bit    Registers := 4     
-	                3 Bit    Registers := 6     
-	                1 Bit    Registers := 7     
+	                8 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
 +---Muxes : 
 	   2 Input     18 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 4     
+	   2 Input     10 Bit        Muxes := 5     
+	   4 Input      8 Bit        Muxes := 1     
 	  10 Input      8 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 26    
-	   2 Input      3 Bit        Muxes := 121   
+	   2 Input      4 Bit        Muxes := 12    
+	   8 Input      3 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 24    
 	   4 Input      3 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 58    
 	   8 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 66    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -132,29 +254,44 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module Lock 
+Module encoder83 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      3 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 1     
+Module CPU 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     18 Bit       Adders := 1     
 	   2 Input     10 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 4     
-	   2 Input      3 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
 +---Registers : 
 	               18 Bit    Registers := 1     
 	               10 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                4 Bit    Registers := 3     
-	                3 Bit    Registers := 5     
-	                1 Bit    Registers := 7     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
 +---Muxes : 
 	   2 Input     18 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 4     
-	   2 Input      8 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 26    
-	   2 Input      3 Bit        Muxes := 121   
-	   4 Input      3 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 5     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 9     
 	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 66    
+	   2 Input      1 Bit        Muxes := 41    
+Module memory 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 3     
+	   2 Input      3 Bit        Muxes := 23    
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 17    
 Module translator 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -184,18 +321,24 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5546] ROM "clk" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element lefttime_reg was removed.  [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:120]
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\d/t/out_reg[0] )
-WARNING: [Synth 8-3332] Sequential element (d/t/out_reg[0]) is unused and will be removed from module Lock.
-INFO: [Synth 8-3886] merging instance 'd/sel_reg[2]' (FD) to 'd/sel_reg[3]'
-INFO: [Synth 8-3886] merging instance 'd/sel_reg[3]' (FD) to 'd/sel_reg[4]'
-INFO: [Synth 8-3886] merging instance 'd/sel_reg[4]' (FD) to 'd/sel_reg[5]'
-INFO: [Synth 8-3886] merging instance 'd/sel_reg[5]' (FD) to 'd/sel_reg[6]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\d/sel_reg[6] )
-WARNING: [Synth 8-3332] Sequential element (d/sel_reg[6]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-6014] Unused sequential element cpu/r_green_reg was removed.  [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:238]
+WARNING: [Synth 8-6014] Unused sequential element cpu/alarming_reg was removed.  [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:240]
+WARNING: [Synth 8-6014] Unused sequential element cpu/memclk_reg was removed.  [D:/lalala/ElectricPasswordLock/ElectricPasswordLock.srcs/sources_1/new/Lock.v:327]
+INFO: [Synth 8-5587] ROM size for "p_0_out" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cpu/clk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3886] merging instance 'cpu/select_reg[7]' (FDE) to 'cpu/select_reg[1]'
+INFO: [Synth 8-3886] merging instance 'cpu/select_reg[6]' (FDE) to 'cpu/select_reg[5]'
+INFO: [Synth 8-3886] merging instance 'cpu/select_reg[5]' (FDE) to 'cpu/select_reg[4]'
+INFO: [Synth 8-3886] merging instance 'cpu/select_reg[4]' (FDE) to 'cpu/select_reg[3]'
+INFO: [Synth 8-3886] merging instance 'cpu/select_reg[3]' (FDE) to 'cpu/select_reg[2]'
+INFO: [Synth 8-3886] merging instance 'cpu/select_reg[1]' (FDE) to 'cpu/select_reg[0]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\cpu/select_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\screen/t/out_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (screen/t/out_reg[0]) is unused and will be removed from module Lock.
+WARNING: [Synth 8-3332] Sequential element (cpu/select_reg[0]) is unused and will be removed from module Lock.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -207,13 +350,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Timing Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -224,9 +367,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (left_reg[9]) is unused and will be removed from module Lock.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -250,7 +392,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished IO Insertion : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -263,7 +405,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -275,25 +417,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -310,47 +452,53 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |     6|
+|2     |CARRY4 |     5|
 |3     |LUT1   |    21|
-|4     |LUT2   |    13|
-|5     |LUT3   |    20|
-|6     |LUT4   |    22|
-|7     |LUT5   |    41|
-|8     |LUT6   |    80|
-|9     |FDRE   |    80|
-|10    |LDC    |     1|
-|11    |LDP    |     6|
-|12    |IBUF   |     9|
-|13    |OBUF   |    27|
+|4     |LUT2   |    27|
+|5     |LUT3   |    14|
+|6     |LUT4   |    28|
+|7     |LUT5   |    29|
+|8     |LUT6   |    56|
+|9     |FDRE   |    56|
+|10    |FDSE   |     6|
+|11    |LD     |    16|
+|12    |LDC    |     9|
+|13    |LDP    |     6|
+|14    |IBUF   |     9|
+|15    |OBUF   |    16|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+---------+-----------+------+
-|      |Instance |Module     |Cells |
-+------+---------+-----------+------+
-|1     |top      |           |   328|
-|2     |  d      |display    |    40|
-|3     |    t    |translator |    20|
-+------+---------+-----------+------+
++------+------------+-----------+------+
+|      |Instance    |Module     |Cells |
++------+------------+-----------+------+
+|1     |top         |           |   300|
+|2     |  cpu       |CPU        |   157|
+|3     |    encoder |encoder83  |    27|
+|4     |  mem       |memory     |    66|
+|5     |  screen    |display    |    50|
+|6     |    t       |translator |    20|
++------+------------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:26 . Memory (MB): peak = 645.359 ; gain = 120.734
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 645.359 ; gain = 419.859
+Synthesis finished with 0 errors, 0 critical warnings and 15 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:46 . Memory (MB): peak = 643.699 ; gain = 120.676
+Synthesis Optimization Complete : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 643.699 ; gain = 417.813
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 7 instances were transformed.
-  LDC => LDCE: 1 instances
+  A total of 31 instances were transformed.
+  LD => LDCE: 16 instances
+  LDC => LDCE: 9 instances
   LDP => LDPE: 6 instances
 
-42 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+38 Infos, 56 Warnings, 38 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 645.359 ; gain = 423.730
+synth_design: Time (s): cpu = 00:00:59 ; elapsed = 00:01:02 . Memory (MB): peak = 643.699 ; gain = 421.805
 INFO: [Common 17-1381] The checkpoint 'D:/lalala/ElectricPasswordLock/ElectricPasswordLock.runs/synth_1/Lock.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 645.359 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Jun 26 19:44:31 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 643.699 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 27 10:44:05 2017...
