@@ -135,6 +135,7 @@ module memory(clk,in,stat,clr,out,t1,t0);
             times0=0;
             times1=0;
             step=0;
+            r_out=0;
         end
         else
         begin
@@ -219,8 +220,17 @@ module CPU(clock,
     reg [7:0] select=8'b10000011;
     
     //信号发射寄存器
-    reg r_green=0,clk=0;
+    reg r_green=0,clk=0,memclk=0,memclr=0;
     reg inputing=0,changing=0,waiting=0,timing=0,alarming=0;
+    
+    /*
+    状态共有：
+    输入密码前：0000
+    输入密码中：1001
+    修改密码前：1011
+    修改密码中：1100
+    */
+    assign memstat=changing;
     
     wire hasinput;
     
@@ -267,28 +277,31 @@ module CPU(clock,
             else left=left-1;
         end
         
-        if(changing&&times0==4) //修改密码完毕
+        //重置清零信号
+        if(memclr) memclr=0;
+        
+        if(memfinish)
         begin
-            $display("changing finished.");
-            r_green<=0;
-            times0=0;
-            times1=0;
-            inputing<=0;
-            changing<=0;
+            if(changing) //修改密码完毕
+            begin
+                $display("changing finished.");
+                r_green<=0;
+                inputing<=0;
+                changing<=0;
+                memclr=1;
+            end
+            else if(inputing) //输入密码正确
+            begin
+                $display("password right.");
+                alarming<=0;
+                r_green<=1;
+                memclr=1;
+                waiting=1;
+                lefttime=5;
+                left=500;
+            end
         end
-        else if(inputing&&step==4) //输入密码正确
-        begin
-            $display("password right.");
-            alarming<=0;
-            r_green<=1;
-            times0=0;
-            times1=0;
-            step=0;
-            waiting=1;
-            lefttime=5;
-            left=500;
-        end
-        else if(in>last)
+        else if(hasinput)
         begin
             if(!inputing)
             begin
@@ -298,106 +311,18 @@ module CPU(clock,
                 left=500;
                 inputing<=1;
             end
-            if(in[0]&&!last[0])
+            if(waiting)
             begin
-                if(waiting)
-                begin
-                    $display("changing start.");
-                    changing=1;
-                    waiting=0;
-                    times0=0;
-                    times1=0;
-                    lefttime=0;
-                    timing=0;
-                end
-                else
-                begin
-                    if(changing) p[times0]=0;
-                    else if(p[step]==0) step=step+1;
-                    if(times0<9) times0<=times0+1;
-                    else
-                    begin
-                        times0=0;
-                        times1=times1+1;
-                    end
-                end
+                $display("changing start.");
+                changing=1;
+                waiting=0;
+                memclr=1;
+                lefttime=0;
+                timing=0;
             end
-            else if(in[1]&&!last[1])
+            else
             begin
-                if(changing) p[times0]=1;
-                else if(p[step]==1) step<=step+1;
-                if(times0<9) times0<=times0+1;
-                else
-                begin
-                    times0=0;
-                    times1=times1+1;
-                end
-            end
-            else if(in[2]&&!last[2])
-            begin
-                if(changing) p[times0]=2;
-                else if(p[step]==2) step<=step+1;
-                if(times0<9) times0<=times0+1;
-                else
-                begin
-                    times0=0;
-                    times1=times1+1;
-                end
-            end
-            else if(in[3]&&!last[3])
-            begin
-                if(changing) p[times0]=3;
-                else if(p[step]==3) step<=step+1;
-                if(times0<9) times0<=times0+1;
-                else
-                begin
-                    times0=0;
-                    times1=times1+1;
-                end
-            end
-            else if(in[4]&&!last[4])
-            begin
-                if(changing) p[times0]=4;
-                else if(p[step]==4) step<=step+1;
-                if(times0<9) times0<=times0+1;
-                else
-                begin
-                    times0=0;
-                    times1=times1+1;
-                end
-            end
-            else if(in[5]&&!last[5])
-            begin
-                if(changing) p[times0]=5;
-                else if(p[step]==5) step<=step+1;
-                if(times0<9) times0<=times0+1;
-                else
-                begin
-                    times0=0;
-                    times1=times1+1;
-                end
-            end
-            else if(in[6]&&!last[6])
-            begin
-                if(changing) p[times0]=6;
-                else if(p[step]==6) step<=step+1;
-                if(times0<9) times0<=times0+1;
-                else
-                begin
-                    times0=0;
-                    times1=times1+1;
-                end
-            end
-            else if(in[7]&&!last[7])
-            begin
-                if(changing) p[times0]=7;
-                else if(p[step]==7) step<=step+1;
-                if(times0<9) times0<=times0+1;
-                else
-                begin
-                    times0=0;
-                    times1=times1+1;
-                end
+                memclk=~memclk;//触发密码输入
             end
         end
         last=in;
@@ -410,8 +335,7 @@ module CPU(clock,
                 waiting<=0;
                 timing<=0;
                 inputing<=0;
-                times0=0;
-                times1=0;
+                memclr=1;
             end
             else if(inputing) //输入密码超时
             begin
@@ -419,9 +343,7 @@ module CPU(clock,
                 alarming<=1;
                 inputing<=0;
                 timing<=0;
-                times0=0;
-                times1=0;
-                step<=0;
+                memclr=1;
                 r_green<=0;
             end
         end
